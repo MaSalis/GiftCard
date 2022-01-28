@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="CreateCardView" Height="450" Width="800"
         d:DataContext="{d:DesignInstance Type=vm:CreateCardViewModel, IsDesignTimeCreatable=True}">
-    <Grid>
+    <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />

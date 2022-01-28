@@ -21,19 +21,23 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
-            <TextBlock Text="{Binding Sender}" FontSize="15" FontWeight="Bold" Margin="4"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Background="LightGray" >
+            <TextBlock Text="receiver:" FontSize="15" FontWeight="Bold" Margin="4"/>
+            <TextBlock Text="{Binding Receiver}" FontSize="15" FontWeight="Bold" Margin="4"/>
+            <TextBlock Text="amount:" FontSize="15" FontWeight="Bold" Margin="4"/>
             <TextBlock Text="{Binding Amount}" FontSize="15" FontWeight="Bold" Margin="4"/>
 
             
             <!--<TextBlock Text="" FontSize="15" FontWeight="Bold" Margin="4"/>-->
         </StackPanel>
         <StackPanel Visibility="{Binding Path=ViewChart, Converter={StaticResource BoolToVisibility}}"
-                    Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
-            <TextBlock  Text="{Binding Receiver}" FontSize="15" FontWeight="Bold" Margin="4"/>
+                    Orientation="Horizontal" Grid.Column="1" Grid.Row="0" Background="Gray">
+            <TextBlock  Text="sender:" FontSize="15" FontWeight="Bold" Margin="4"/>
+            <TextBlock  Text="{Binding Sender}" FontSize="15" FontWeight="Bold" Margin="4"/>
 
-            <TextBlock Text="{Binding Msg}" FontSize="15" FontWeight="Bold" Margin="4"/> 
-                       
+            <TextBlock Text="messaggio:" FontSize="15" FontWeight="Bold" Margin="4"/>
+            <TextBlock Text="{Binding Msg}" FontSize="15" FontWeight="Bold" Margin="4"/>
+
         </StackPanel>
         
             <CheckBox Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"

@@ -26,20 +26,10 @@ namespace GiftCard.WPF.Views
         {
             InitializeComponent();
             Messenger.Default.Register<ShowCreateCardMessage>(this, OnShowCreateCardExecuted);
-            //Messenger.Default.Register<ShowUpdateEmployeeMessage>(this, OnShowUpdateEmployeeMessageReceived);
+            //Messenger.Default.Register<ShowUpdateCardMessage>(this, OnShowUpdateCardMessageReceived);
         }
 
         
-
-
-        //private void OnShowUpdateEmployeeMessageReceived(ShowUpdateEmployeeMessage message)
-        //{
-        //    //Creazione della view, del vm, marriage e show
-        //    UpdateEmployeeView view = new UpdateEmployeeView();
-        //    UpdateEmployeeViewModel vm = new UpdateEmployeeViewModel(message.Entity);
-        //    view.DataContext = vm;
-        //    view.ShowDialog();
-        //}
 
         private void OnShowCreateCardExecuted(ShowCreateCardMessage obj)
         {
