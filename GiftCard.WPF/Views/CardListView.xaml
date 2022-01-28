@@ -1,0 +1,71 @@
+﻿<Window x:Class="GiftCard.WPF.Views.CardListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GiftCard.WPF.Views"
+        xmlns:vm="clr-namespace:GiftCard.WPF.ViewModels"
+        xmlns:views="clr-namespace:GiftCard.WPF.Views"
+        mc:Ignorable="d"
+        Title="CardListView" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance Type=vm:CardListViewModel, IsDesignTimeCreatable=True}">
+    <Window.Resources>
+        <DataTemplate x:Key="CardRowTemplate">
+            <views:CardRowView></views:CardRowView>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="780"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="430"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="1" Grid.Row="1" BorderThickness="2" CornerRadius="4">
+            <Border.BorderBrush >
+                <SolidColorBrush Color="Black"></SolidColorBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1">
+                    <GradientStop Color="black" Offset="0"/>
+                    <GradientStop Color="Gray" Offset="0.25"/>
+                    <GradientStop Color="black" Offset="0.5"/>
+                    <GradientStop Color="Gray" Offset="0.75"/>
+                    <GradientStop Color="black" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="20" HorizontalAlignment="Center">
+                <TextBlock  Grid.Row="0" Text="GIFT CARDS PROFUMERIA" HorizontalAlignment="Right"
+                       TextAlignment="Center" VerticalAlignment="Center"
+                       FontSize="30" Foreground="White" FontWeight="Bold"></TextBlock>
+            </StackPanel>
+            <Button Margin="4" Grid.Column="0" Grid.Row="0" Width="60" HorizontalAlignment="Right" Command="{Binding Path=LoadCardsCommand}">
+                Aggiorna
+            </Button>
+            <Button Margin="5" Grid.Column="1" Grid.Row="0" Command="{Binding CreateCard}">crea card</Button>
+            <ListBox Grid.Row="1" Grid.RowSpan="2" HorizontalContentAlignment="Stretch" 
+                     ItemsSource="{Binding Cards}" ItemTemplate="{StaticResource CardRowTemplate}"></ListBox>
+           
+            
+            
+           
+        </Grid>
+
+    </Grid>
+</Window>
